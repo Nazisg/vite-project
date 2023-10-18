@@ -2,15 +2,9 @@ import React, { useState } from "react";
 import styles from "../style/Modal.module.scss";
 import down from "../images/down.png";
 
-export default function Modal({ setShowModal }) {
-  const [itemNameValue, setItemNameValue] = useState("");
-  const [ItemDesValue, setItemDesValue] = useState("");
-  const [ItemDateValue, setItemDateValue] = useState("");
+export default function Modal({ setShowModal,save, itemNameValue, setItemNameValue,ItemDesValue, 
+  setItemDesValue,ItemDateValue, setItemDateValue,selectedOption, setSelectedOption}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('Assigne');
-  const [id, setId] = useState(3)
-
-  
 
   const cancelItem = () => {
     setShowModal(false);
@@ -24,9 +18,6 @@ export default function Modal({ setShowModal }) {
   function ItemDate(e) {
     setItemDateValue(e.target.value);
   }
-  function selected(e){
-    console.log(e.target.value)
-  }
     const options =["Viverra Diam","Maecenas Lacus","Eget Integer","Nullam Velit"]
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -35,17 +26,6 @@ export default function Modal({ setShowModal }) {
         setSelectedOption(option);
         setIsOpen(false);
       };
-      const save=()=>{
-      //   setItemObj({
-      //       id: id + 1, 
-      //       title: itemNameValue,
-      //       description: ItemDesValue,
-      //       btnText: selectedOption,
-      //       date: ItemDateValue,
-      //       avatarSrc: "../images/avatar-3.png",
-      //     });
-      //   console.log(itemObj)
-      }
     return (
     <div className={styles.modalBg} onClick={cancelItem}>
       <div
